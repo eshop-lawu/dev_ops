@@ -1,0 +1,40 @@
+version: '3'
+services:
+  fluentd:
+    image: registry.eshop.com/fluentd:v0.12-debian
+    container_name: fluentd
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./fluentd/conf:/fluentd/etc
+    links:
+      - "elasticsearch"
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+    container_name: elasticsearch
+    environment:
+      TZ: Asia/Shanghai
+      discovery.type: "single-node"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    expose:
+      - 9200
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.6.3
+    container_name: kibana
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    links:
+      - "elasticsearch"
+    ports:
+      - "5601:5601"
