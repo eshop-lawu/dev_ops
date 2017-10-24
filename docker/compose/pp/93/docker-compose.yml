@@ -12,10 +12,23 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
-          - /usr/local/eshop/media:/usr/local/eshop/media
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: member-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   merchant-api:
     image: registry.eshop.com/merchant-api
     container_name: merchant-api
@@ -26,10 +39,23 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
-          - /usr/local/eshop/media:/usr/local/eshop/media
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: merchant-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   operator-api:
     image: registry.eshop.com/operator-api
     container_name: operator-api
@@ -40,9 +66,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: operator-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   agent-api:
     image: registry.eshop.com/agent-api
     container_name: agent-api
@@ -53,9 +92,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: agent-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   external-api:
     image: registry.eshop.com/external-api
     container_name: external-api
@@ -66,9 +118,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: external-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   jobs:
     image: registry.eshop.com/jobs
     container_name: jobs
@@ -79,9 +144,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: jobs
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   cache-srv:
     image: registry.eshop.com/cache-srv
     container_name: cache-srv
@@ -92,9 +170,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: cache-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   ad-srv:
     image: registry.eshop.com/ad-srv
     container_name: ad-srv
@@ -105,9 +196,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: ad-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   mall-srv:
     image: registry.eshop.com/mall-srv
     container_name: mall-srv
@@ -118,9 +222,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: mall-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   order-srv:
     image: registry.eshop.com/order-srv
     container_name: order-srv
@@ -131,9 +248,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: order-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   product-srv:
     image: registry.eshop.com/product-srv
     container_name: product-srv
@@ -144,9 +274,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: product-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   property-srv:
     image: registry.eshop.com/property-srv
     container_name: property-srv
@@ -157,9 +300,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: property-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   user-srv:
     image: registry.eshop.com/user-srv
     container_name: user-srv
@@ -170,9 +326,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: user-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   operator-srv:
     image: registry.eshop.com/operator-srv
     container_name: operator-srv
@@ -183,9 +352,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: operator-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   statistics-srv:
     image: registry.eshop.com/statistics-srv
     container_name: statistics-srv
@@ -196,9 +378,22 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: statistics-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
+
   agent-srv:
     image: registry.eshop.com/agent-srv
     container_name: agent-srv
@@ -209,7 +404,19 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: agent-srv
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
