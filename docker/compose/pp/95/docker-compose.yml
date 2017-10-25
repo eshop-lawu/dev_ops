@@ -9,7 +9,7 @@ services:
       - "1111:1111"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -36,7 +36,7 @@ services:
       - "2222:2222"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -63,7 +63,7 @@ services:
       - "3333:3333"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -89,7 +89,7 @@ services:
       - "4444:4444"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -115,7 +115,7 @@ services:
       - "5555:5555"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -141,7 +141,7 @@ services:
       - "6666:6666"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -167,7 +167,7 @@ services:
       - "9001:7001"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -193,7 +193,7 @@ services:
       - "8001:8001"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -219,7 +219,7 @@ services:
       - "8002:8002"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -245,7 +245,7 @@ services:
       - "8003:8003"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -271,7 +271,7 @@ services:
       - "8004:8004"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -297,7 +297,7 @@ services:
       - "8005:8005"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -323,7 +323,7 @@ services:
       - "8006:8006"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -349,7 +349,7 @@ services:
       - "8007:8007"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -375,7 +375,7 @@ services:
       - "8008:8008"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -401,7 +401,7 @@ services:
       - "8009:8009"
     environment:
       - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.95:8080
+      - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
