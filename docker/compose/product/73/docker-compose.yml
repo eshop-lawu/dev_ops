@@ -2,6 +2,20 @@ version: '3'
 
 services:
 
+  cache-srv:
+    image: registry.eshop.com/cache-srv
+    container_name: cache-srv
+    ports:
+      - "7001:7001"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+          - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+
   member-api:
     image: registry.eshop.com/member-api
     container_name: member-api
