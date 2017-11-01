@@ -13,6 +13,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   ad-srv:
     image: registry.eshop.com/ad-srv
     container_name: ad-srv
@@ -35,6 +37,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   order-srv:
     image: registry.eshop.com/order-srv
     container_name: order-srv
@@ -46,6 +50,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   product-srv:
     image: registry.eshop.com/product-srv
     container_name: product-srv
@@ -57,6 +63,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   property-srv:
     image: registry.eshop.com/property-srv
     container_name: property-srv
@@ -68,6 +76,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   user-srv:
     image: registry.eshop.com/user-srv
     container_name: user-srv
@@ -79,6 +89,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   operator-srv:
     image: registry.eshop.com/operator-srv
     container_name: operator-srv
@@ -87,6 +99,11 @@ services:
     environment:
       - spring.cloud.config.profile=dev
       - spring.cloud.config.uri=http://192.168.1.29:8080
+      - TZ=Asia/Shanghai
+    volumes:
+          - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   statistics-srv:
     image: registry.eshop.com/statistics-srv
     container_name: statistics-srv
@@ -98,6 +115,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   member-api:
     image: registry.eshop.com/member-api
     container_name: member-api
@@ -110,6 +129,8 @@ services:
     volumes:
           - /etc/localtime:/etc/localtime:ro
           - /usr/local/eshop/media:/usr/local/eshop/media
+    networks:
+      - eshop_eshopNet
   merchant-api:
     image: registry.eshop.com/merchant-api
     container_name: merchant-api
@@ -122,6 +143,8 @@ services:
     volumes:
           - /etc/localtime:/etc/localtime:ro
           - /usr/local/eshop/media:/usr/local/eshop/media
+    networks:
+      - eshop_eshopNet
   operator-api:
     image: registry.eshop.com/operator-api
     container_name: operator-api
@@ -134,6 +157,8 @@ services:
     volumes:
           - /etc/localtime:/etc/localtime:ro
           - /usr/local/eshop/media:/usr/local/eshop/media
+    networks:
+      - eshop_eshopNet
   external-api:
     image: registry.eshop.com/external-api
     container_name: external-api
@@ -145,6 +170,8 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   jobs:
     image: registry.eshop.com/jobs
     container_name: jobs
@@ -156,3 +183,9 @@ services:
       - TZ=Asia/Shanghai
     volumes:
           - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+
+networks:
+  eshop_eshopNet:
+    external: true
