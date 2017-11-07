@@ -16,6 +16,15 @@ sudo iptables -F;sudo iptables -X
 ------
 参考地址： https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.12.MkthiN#/accelerator
 
+把当前用户加入到docker用户组
+```bash
+sudo usermod -aG docker dev2
+```
+or
+```bash
+sudo gpasswd -a dev2 docker
+```
+
 
 Docker的使用
 ======
