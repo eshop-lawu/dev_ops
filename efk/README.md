@@ -26,3 +26,4 @@ Kibana
 ----
 [1]https://docs.fluentd.org/v0.12/articles/docker-logging-efk-compose
 [2]https://docs.docker.com/engine/admin/logging/fluentd/
+[3]https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
