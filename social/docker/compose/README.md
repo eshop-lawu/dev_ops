@@ -28,14 +28,14 @@ https://docs.docker.com/compose/install/
 通过服务编排创建网络,会以当前文件夹为前缀
 或者
 ```bash
-sudo docker network create -d overlay --attachable eshop_eshopNet
+sudo docker network create -d overlay --attachable social_socialNet
 ```
 
 加入网络
 -----
 ```bash
 docker run --name nginx -it -d -p 80:80 \
-    --network=eshop_eshopNet \
+    --network=social_socialNet \
     -v /etc/localtime:/etc/localtime:ro \
     nginx:1.10.2-alpine
 ```
