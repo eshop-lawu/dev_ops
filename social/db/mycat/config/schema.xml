@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://io.mycat/">
+    <schema name="mall" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_mall"/>
+	<schema name="operator" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_operator"/>
+    <schema name="property" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_property"/>
+    <schema name="user" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_user"/>
+
+    
+	<dataNode name="dn_mall" dataHost="host1" database="social_mall"/>
+	<dataNode name="dn_operator" dataHost="host1" database="social_operator"/>
+    <dataNode name="dn_property" dataHost="host1" database="social_property"/>
+    <dataNode name="dn_user" dataHost="host1" database="social_user"/>
+
+   
+
+    <dataHost name="host1" maxCon="1000" minCon="10" balance="1" writeType="1" dbType="mysql" dbDriver="native">
+        <heartbeat>select 1</heartbeat>
+        <!-- can have multi write hosts -->
+        <writeHost host="hostM1" url="192.168.100.182:3306" user="socialuser " password="social@product#1301">
+            <!-- can have multi read hosts -->
+            <readHost host="hostS1" url="192.168.100.181:3306" user="socialuser " password="social@product#1301" weight="1" />
+        </writeHost>
+    </dataHost>
+</mycat:schema>

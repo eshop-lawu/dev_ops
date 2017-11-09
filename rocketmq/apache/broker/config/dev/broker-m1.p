@@ -1,0 +1,9 @@
+namesrvAddr=192.168.1.23:9876
+brokerIP1=192.168.1.23
+brokerIP1=192.168.1.23
+listenPort=10911
+brokerName=broker-a
+brokerClusterName=DefaultCluster
+brokerId=0
+brokerRole=ASYNC_MASTER
+flushDiskType=ASYNC_FLUSH
