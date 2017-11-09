@@ -1,15 +1,20 @@
 #!/bin/sh
 
-# --参数--
-# 操作类型
-OPT=$1
-# 部署目标
-TARGET=$2
-
 # 清除none的docker镜像
 function clear_images() {
+	local tag=${TAG}
+	if [ ${tag} ]
+    then
+        if [ ${tag} = "all" ]
+        then
+            local images=`docker images -a`
+        else
+            local images=`docker images --filter=reference="registry.eshop.com/*:${tag}" --format "{{.ID}}"`
+        fi
+    fi
+	
     # 待清理镜像ID
-    local images=`sudo docker inspect -f "{{.ID}}:{{.RepoTags}}" $(sudo docker images -q) | grep "\[\]" | cut -d ":" -f 2`
+    local images=${images} `sudo docker inspect -f "{{.ID}}:{{.RepoTags}}" $(sudo docker images -q) | grep "\[\]" | cut -d ":" -f 2`
     
     # 待清理镜像数量
     local images_num=`echo "${images}" | wc -l`
@@ -48,39 +53,71 @@ function clear() {
 # 停止服务，重新拉取镜像，启动服务
 function deploy() {
     # 指定的当前环境
-    local service_name=$1
+    local service_name=${MODULE}
+    local tag=${TAG}
     
     if [ ${service_name} ]
     then
-        sudo /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml stop ${service_name}
-        sudo /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml rm ${service_name} << EOF
-y
-EOF
+        TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml rm -s -f ${service_name}
     else
-        sudo /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml down
+        TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml down
     fi
-    sudo /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml pull ${service_name}
-    clear
-    sudo /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml up -d ${service_name}
+    TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml pull ${service_name}
+    clear all
+    TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml up -d ${service_name}
 }
 
 # 重启服务
 function restart() {
     # 指定的当前环境
-    local service_name=$1
+    local service_name=${MODULE}
+    local tag=${TAG}
     
-    sudo /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml restart ${service_name}
+    TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml restart ${service_name}
 }
 
-if [ ${OPT} = "deploy" ]
+help() {
+    cat <<EOF
+USAGE EXAMPLE: ./docker_deploy.sh command -m module -t tag
+Commands:
+    clear   clear images and volumes
+    deploy  deploy compose service
+    restart restart compose service
+Options:
+    -m      docker-compose service name
+    -t      docker images tag
+EOF
+    exit 0  
+}  
+
+# --参数--
+# 操作类型
+OPT=$1;shift
+
+while [ -n "$1" ]; do
+case $1 in
+    -h) help;shift 1;;
+    -m) MODULE=$2;shift 2;; # 部署目标
+    -t) TAG=$2;shift 2;; # 部署版本 
+    -*) echo "error: no such option $1. -h for help";exit 1;;  
+    *) break;;
+esac
+done
+
+if [ ${OPT} ]
 then
-    deploy ${TARGET}
-elif [ ${OPT} = "restart" ]
-then
-    restart ${TARGET}
-elif [ ${OPT} = "clear" ]
-then
-    clear ${TARGET}
+	if [ ${OPT} = "deploy" ]
+	then
+	    deploy
+	elif [ ${OPT} = "restart" ]
+	then
+	    restart
+	elif [ ${OPT} = "clear" ]
+	then
+	    clear
+	else
+	    echo "unknown command: ${OPT}"
+    fi
 else
-    echo "unknown operation: ${OPT}"
+    help
 fi
