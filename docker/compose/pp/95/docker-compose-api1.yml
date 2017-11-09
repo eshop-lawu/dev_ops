@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+
+  member-api1:
+    image: registry.eshop.com/member-api
+    container_name: member-api1
+    ports:
+      - "1211:1111"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
+    labels:
+      env: pp
+      ip: 192.168.100.95
+      group: application
+      module: member-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
+    networks:
+      - eshop_eshopNet
+
+  merchant-api1:
+    image: registry.eshop.com/merchant-api
+    container_name: merchant-api1
+    ports:
+      - "2322:2222"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
+    labels:
+      env: pp
+      ip: 192.168.100.95
+      group: application
+      module: merchant-api
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "192.168.100.94:24224"
+        fluentd-async-connect: "true"
+        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
+        labels: "env,ip,group,module"
+    networks:
+      - eshop_eshopNet
+
+networks:
+  eshop_eshopNet:
+    external: true
