@@ -3,4 +3,4 @@ skip-host-cache
 skip-name-resolve
 
 log-bin=mysql-bin
-server-id=206
+server-id=181
