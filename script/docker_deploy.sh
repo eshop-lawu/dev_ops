@@ -3,15 +3,21 @@
 # 清除none的docker镜像
 function clear_images() {
 	local tag=${TAG}
+	if [ $1 ]
+	then
+        tag=$1
+    fi
 	if [ ${tag} ]
     then
         if [ ${tag} = "all" ]
         then
-            local images=`docker images -a`
+            local images=`docker images -a -q`
         else
             local images=`docker images --filter=reference="registry.eshop.com/*:${tag}" --format "{{.ID}}"`
         fi
     fi
+    
+    echo ${images}
 	
     # 待清理镜像ID
     local images=${images} `sudo docker inspect -f "{{.ID}}:{{.RepoTags}}" $(sudo docker images -q) | grep "\[\]" | cut -d ":" -f 2`
@@ -63,8 +69,8 @@ function deploy() {
         TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml down
     fi
     TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml pull ${service_name}
-    clear all
     TAG=${tag} /usr/local/bin/docker-compose -f /usr/local/eshop/docker-compose.yml up -d ${service_name}
+    clear all
 }
 
 # 重启服务
