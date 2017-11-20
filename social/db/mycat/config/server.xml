@@ -17,6 +17,6 @@
 
     <user name="socialuser">
         <property name="password">social@product#1301</property>
-        <property name="schemas">mall,operator,property,user</property>
+        <property name="schemas">property,mall,user,operator</property>
     </user>
 </mycat:server>

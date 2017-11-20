@@ -1,5 +1,5 @@
-namesrvAddr=192.168.100.90:9876;192.168.100.91:9876
-brokerIP1=192.168.100.90
+namesrvAddr=192.168.100.61:9876;192.168.100.61:9876
+brokerIP1=192.168.100.61
 listenPort=10911
 haListenPort=10912
 brokerName=broker-a
