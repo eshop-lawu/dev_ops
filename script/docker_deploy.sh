@@ -3,22 +3,24 @@
 # 清除none的docker镜像
 function clear_images() {
 	local tag=${TAG}
-	if [ $1 ]
+	local project=${PROJECT}
+	if [[ $1 && $1 = "all" ]]
 	then
         tag=$1
     fi
+    
 	if [ ${tag} ]
     then
         if [ ${tag} = "all" ]
         then
             local images=`docker images -a -q`
         else
-            local images=`docker images --filter=reference="registry.eshop.com/${PROJECT}/*:${tag}" --format "{{.ID}}"`
+            local images=`docker images --filter=reference="registry.eshop.com/${project}/*:${tag}" --format "{{.ID}}"`
         fi
     fi
     
     # 待清理镜像ID
-    local images=${images} `sudo docker inspect -f "{{.ID}}:{{.RepoTags}}" $(sudo docker images -q) | grep "\[\]" | cut -d ":" -f 2`
+    local images=${images}" "`sudo docker inspect -f "{{.ID}}:{{.RepoTags}}" $(sudo docker images -q) | grep "\[\]" | cut -d ":" -f 2`
     
     # 待清理镜像数量
     local images_num=`echo "${images}" | wc -l`
@@ -51,7 +53,7 @@ function clear() {
     clear_images $@
     
     # 清理docker挂载
-    clear_volumes $@
+    clear_volumes
 }
 
 # 停止服务，重新拉取镜像，启动服务
@@ -90,6 +92,7 @@ Commands:
 Options:
     -m      docker-compose service name
     -t      docker images tag
+    -p      docker registry project
 EOF
     exit 0  
 }  

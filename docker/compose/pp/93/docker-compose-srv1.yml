@@ -3,7 +3,7 @@ version: '3'
 services:
 
   cache-srv2:
-    image: registry.eshop.com/cache-srv
+    image: registry.eshop.com/eshop/cache-srv:${TAG}
     container_name: cache-srv2
     ports:
       - "9201:7001"
@@ -29,7 +29,7 @@ services:
       - eshop_eshopNet
 
   ad-srv2:
-    image: registry.eshop.com/ad-srv
+    image: registry.eshop.com/eshop/ad-srv:${TAG}
     container_name: ad-srv2
     ports:
       - "8201:8001"
@@ -55,7 +55,7 @@ services:
       - eshop_eshopNet
 
   mall-srv2:
-    image: registry.eshop.com/mall-srv
+    image: registry.eshop.com/eshop/mall-srv:${TAG}
     container_name: mall-srv2
     ports:
       - "8202:8002"
@@ -81,7 +81,7 @@ services:
       - eshop_eshopNet
 
   order-srv2:
-    image: registry.eshop.com/order-srv
+    image: registry.eshop.com/eshop/order-srv:${TAG}
     container_name: order-srv2
     ports:
       - "8203:8003"
@@ -107,7 +107,7 @@ services:
       - eshop_eshopNet
 
   product-srv2:
-    image: registry.eshop.com/product-srv
+    image: registry.eshop.com/eshop/product-srv:${TAG}
     container_name: product-srv2
     ports:
       - "8204:8004"
@@ -133,7 +133,7 @@ services:
       - eshop_eshopNet
 
   property-srv2:
-    image: registry.eshop.com/property-srv
+    image: registry.eshop.com/eshop/property-srv:${TAG}
     container_name: property-srv2
     ports:
       - "8205:8005"
@@ -159,7 +159,7 @@ services:
       - eshop_eshopNet
 
   user-srv2:
-    image: registry.eshop.com/user-srv
+    image: registry.eshop.com/eshop/user-srv:${TAG}
     container_name: user-srv2
     ports:
       - "8206:8006"
@@ -185,7 +185,7 @@ services:
       - eshop_eshopNet
 
   operator-srv2:
-    image: registry.eshop.com/operator-srv
+    image: registry.eshop.com/eshop/operator-srv:${TAG}
     container_name: operator-srv2
     ports:
       - "8207:8007"
@@ -211,7 +211,7 @@ services:
       - eshop_eshopNet
 
   statistics-srv2:
-    image: registry.eshop.com/statistics-srv
+    image: registry.eshop.com/eshop/statistics-srv:${TAG}
     container_name: statistics-srv2
     ports:
       - "8208:8008"
@@ -237,7 +237,7 @@ services:
       - eshop_eshopNet
 
   agent-srv2:
-    image: registry.eshop.com/agent-srv
+    image: registry.eshop.com/eshop/agent-srv:${TAG}
     container_name: agent-srv2
     ports:
       - "8209:8009"

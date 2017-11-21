@@ -3,7 +3,7 @@ version: '3'
 services:
 
   member-api:
-    image: registry.eshop.com/member-api
+    image: registry.eshop.com/eshop/member-api:${TAG}
     container_name: member-api
     ports:
       - "1111:1111"
@@ -30,7 +30,7 @@ services:
       - eshop_eshopNet
 
   merchant-api:
-    image: registry.eshop.com/merchant-api
+    image: registry.eshop.com/eshop/merchant-api:${TAG}
     container_name: merchant-api
     ports:
       - "2222:2222"
@@ -57,7 +57,7 @@ services:
       - eshop_eshopNet
 
   operator-api:
-    image: registry.eshop.com/operator-api
+    image: registry.eshop.com/eshop/operator-api:${TAG}
     container_name: operator-api
     ports:
       - "3333:3333"
@@ -83,7 +83,7 @@ services:
       - eshop_eshopNet
 
   agent-api:
-    image: registry.eshop.com/agent-api
+    image: registry.eshop.com/eshop/agent-api:${TAG}
     container_name: agent-api
     ports:
       - "4444:4444"
@@ -109,7 +109,7 @@ services:
       - eshop_eshopNet
 
   external-api:
-    image: registry.eshop.com/external-api
+    image: registry.eshop.com/eshop/external-api:${TAG}
     container_name: external-api
     ports:
       - "5555:5555"
@@ -135,7 +135,7 @@ services:
       - eshop_eshopNet
 
   jobs:
-    image: registry.eshop.com/jobs
+    image: registry.eshop.com/eshop/jobs:${TAG}
     container_name: jobs
     ports:
       - "6666:6666"
@@ -161,7 +161,7 @@ services:
       - eshop_eshopNet
 
   cache-srv:
-    image: registry.eshop.com/cache-srv
+    image: registry.eshop.com/eshop/cache-srv:${TAG}
     container_name: cache-srv
     ports:
       - "9001:7001"
@@ -187,7 +187,7 @@ services:
       - eshop_eshopNet
 
   ad-srv:
-    image: registry.eshop.com/ad-srv
+    image: registry.eshop.com/eshop/ad-srv:${TAG}
     container_name: ad-srv
     ports:
       - "8001:8001"
@@ -213,7 +213,7 @@ services:
       - eshop_eshopNet
 
   mall-srv:
-    image: registry.eshop.com/mall-srv
+    image: registry.eshop.com/eshop/mall-srv:${TAG}
     container_name: mall-srv
     ports:
       - "8002:8002"
@@ -239,7 +239,7 @@ services:
       - eshop_eshopNet
 
   order-srv:
-    image: registry.eshop.com/order-srv
+    image: registry.eshop.com/eshop/order-srv:${TAG}
     container_name: order-srv
     ports:
       - "8003:8003"
@@ -265,7 +265,7 @@ services:
       - eshop_eshopNet
 
   product-srv:
-    image: registry.eshop.com/product-srv
+    image: registry.eshop.com/eshop/product-srv:${TAG}
     container_name: product-srv
     ports:
       - "8004:8004"
@@ -291,7 +291,7 @@ services:
       - eshop_eshopNet
 
   property-srv:
-    image: registry.eshop.com/property-srv
+    image: registry.eshop.com/eshop/property-srv:${TAG}
     container_name: property-srv
     ports:
       - "8005:8005"
@@ -317,7 +317,7 @@ services:
       - eshop_eshopNet
 
   user-srv:
-    image: registry.eshop.com/user-srv
+    image: registry.eshop.com/eshop/user-srv:${TAG}
     container_name: user-srv
     ports:
       - "8006:8006"
@@ -343,7 +343,7 @@ services:
       - eshop_eshopNet
 
   operator-srv:
-    image: registry.eshop.com/operator-srv
+    image: registry.eshop.com/eshop/operator-srv:${TAG}
     container_name: operator-srv
     ports:
       - "8007:8007"
@@ -369,7 +369,7 @@ services:
       - eshop_eshopNet
 
   statistics-srv:
-    image: registry.eshop.com/statistics-srv
+    image: registry.eshop.com/eshop/statistics-srv:${TAG}
     container_name: statistics-srv
     ports:
       - "8008:8008"
@@ -395,7 +395,7 @@ services:
       - eshop_eshopNet
 
   agent-srv:
-    image: registry.eshop.com/agent-srv
+    image: registry.eshop.com/eshop/agent-srv:${TAG}
     container_name: agent-srv
     ports:
       - "8009:8009"
