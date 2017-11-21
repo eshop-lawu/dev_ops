@@ -34,14 +34,27 @@ sudo systemctl restart docker
 6、启动私库
 ----
 ```bash
-sudo docker run -d -p 443:5000 --restart=always --name registry \
+sudo docker run -d -p 443:5000 -p 80:5000 --restart=always --name registry \
     -v /etc/localtime:/etc/localtime:ro \
     -v /usr/local/eshop/certs:/certs \
-    -v /usr/local/eshop/docker-image:/var/lib/registry/docker/registry/v2 \
-    -e STORAGE_PATH=/opt/docker-image \
+    -v /usr/local/eshop/docker/registry:/var/lib/registry \
     -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.eshop.com.crt \
     -e REGISTRY_HTTP_TLS_KEY=/certs/registry.eshop.com.key \
-    registry:2
+    registry
+```
+```bash
+sudo docker run -d -p 443:5000 --restart=always --name registry2 \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /usr/local/eshop/certs:/certs \
+    -v /usr/local/eshop/docker/registry:/var/lib/registry \
+    -v /usr/local/eshop/docker/config.yml:/etc/docker/registry/config.yml \
+    registry:2.3.0
+```
+
+7、垃圾回收
+----
+```bash
+docker exec -it registry registry garbage-collect /etc/registry/config.yml
 ```
 
 二、客户机

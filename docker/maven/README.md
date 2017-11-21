@@ -61,7 +61,7 @@ source /etc/profile
 2.在docker容器中构建
 ------
 ```bash    
-sudo docker exec -it docker-maven mvn clean install package -Dmaven.test.skip -DpushImage -DdockerImageTags=1.3.12.1
+sudo docker exec -it docker-maven mvn clean install -Dmaven.test.skip -DpushImage -DdockerImageTags=1.3.12.1
 ```
 
 

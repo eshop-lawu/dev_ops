@@ -13,12 +13,10 @@ function clear_images() {
         then
             local images=`docker images -a -q`
         else
-            local images=`docker images --filter=reference="registry.eshop.com/*:${tag}" --format "{{.ID}}"`
+            local images=`docker images --filter=reference="registry.eshop.com/${PROJECT}/*:${tag}" --format "{{.ID}}"`
         fi
     fi
     
-    echo ${images}
-	
     # 待清理镜像ID
     local images=${images} `sudo docker inspect -f "{{.ID}}:{{.RepoTags}}" $(sudo docker images -q) | grep "\[\]" | cut -d ":" -f 2`
     
@@ -50,10 +48,10 @@ function clear_volumes() {
 # 清理docker环境
 function clear() {
     # 清理docker镜像
-    clear_images
+    clear_images $@
     
     # 清理docker挂载
-    clear_volumes
+    clear_volumes $@
 }
 
 # 停止服务，重新拉取镜像，启动服务
@@ -104,7 +102,8 @@ while [ -n "$1" ]; do
 case $1 in
     -h) help;shift 1;;
     -m) MODULE=$2;shift 2;; # 部署目标
-    -t) TAG=$2;shift 2;; # 部署版本 
+    -t) TAG=$2;shift 2;; # 部署版本
+    -p) PROJECT=$2;shift 2;; # 部署版本 
     -*) echo "error: no such option $1. -h for help";exit 1;;  
     *) break;;
 esac
