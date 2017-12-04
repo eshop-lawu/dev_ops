@@ -57,6 +57,16 @@ sudo -s
 ```bash
 source /etc/profile
 ```
+修改maven的settings.xml，添加server
+<server>
+    <id>harbor</id>
+    <username>admin</username>
+    <password>Harbor12345</password>
+    <configuration>
+      <email></email>
+    </configuration>
+</server>
+
 
 2.在docker容器中构建
 ------

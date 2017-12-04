@@ -2,13 +2,13 @@
 ======
 第一种方式
 ------
-下载：https://github.com/docker/compose/releases/download/1.14.0/docker-compose-Linux-x86_64
+下载：https://github.com/docker/compose/releases/download/1.17.1/docker-compose-Linux-x86_64
 拷贝至：/usr/local/bin/docker-compose
 
 第二种方式
 ------
 ```bash
-curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 ```
 
 获取权限
