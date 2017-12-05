@@ -2,11 +2,11 @@ version: '3'
 
 services:
 
-  member-api1:
+  member-api:
     image: registry.eshop.com/eshop/member-api:${TAG}
-    container_name: member-api1
+    container_name: member-api${SUFFIX}
     ports:
-      - "1211:1111"
+      - "1111${SUFFIX}:1111"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -18,7 +18,7 @@ services:
       env: pp
       ip: 192.168.100.95
       group: application
-      module: member-api
+      module: member-api${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -29,11 +29,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  merchant-api1:
+  merchant-api:
     image: registry.eshop.com/eshop/merchant-api:${TAG}
-    container_name: merchant-api1
+    container_name: merchant-api${SUFFIX}
     ports:
-      - "2322:2222"
+      - "2222${SUFFIX}:2222"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -45,7 +45,7 @@ services:
       env: pp
       ip: 192.168.100.95
       group: application
-      module: merchant-api
+      module: merchant-api${SUFFIX}
     logging:
       driver: fluentd
       options:

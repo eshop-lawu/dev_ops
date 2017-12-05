@@ -2,11 +2,11 @@ version: '3'
 
 services:
 
-  cache-srv2:
+  cache-srv:
     image: registry.eshop.com/eshop/cache-srv:${TAG}
-    container_name: cache-srv2
+    container_name: cache-srv${SUFFIX}
     ports:
-      - "9201:7001"
+      - "9${SUFFIX}01:7001"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -15,9 +15,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: cache-srv
+      module: cache-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -28,11 +28,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  ad-srv2:
+  ad-srv:
     image: registry.eshop.com/eshop/ad-srv:${TAG}
-    container_name: ad-srv2
+    container_name: ad-srv${SUFFIX}
     ports:
-      - "8201:8001"
+      - "8${SUFFIX}01:8001"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -41,9 +41,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: ad-srv
+      module: ad-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -54,11 +54,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  mall-srv2:
+  mall-srv:
     image: registry.eshop.com/eshop/mall-srv:${TAG}
-    container_name: mall-srv2
+    container_name: mall-srv${SUFFIX}
     ports:
-      - "8202:8002"
+      - "8${SUFFIX}02:8002"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -67,9 +67,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: mall-srv
+      module: mall-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -80,11 +80,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  order-srv2:
+  order-srv:
     image: registry.eshop.com/eshop/order-srv:${TAG}
-    container_name: order-srv2
+    container_name: order-srv${SUFFIX}
     ports:
-      - "8203:8003"
+      - "8${SUFFIX}03:8003"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -93,9 +93,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: order-srv
+      module: order-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -106,11 +106,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  product-srv2:
+  product-srv:
     image: registry.eshop.com/eshop/product-srv:${TAG}
-    container_name: product-srv2
+    container_name: product-srv${SUFFIX}
     ports:
-      - "8204:8004"
+      - "8${SUFFIX}04:8004"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -119,9 +119,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: product-srv
+      module: product-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -132,11 +132,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  property-srv2:
+  property-srv:
     image: registry.eshop.com/eshop/property-srv:${TAG}
-    container_name: property-srv2
+    container_name: property-srv${SUFFIX}
     ports:
-      - "8205:8005"
+      - "8${SUFFIX}05:8005"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -145,9 +145,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: property-srv
+      module: property-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
@@ -158,11 +158,11 @@ services:
     networks:
       - eshop_eshopNet
 
-  user-srv2:
+  user-srv:
     image: registry.eshop.com/eshop/user-srv:${TAG}
-    container_name: user-srv2
+    container_name: user-srv${SUFFIX}
     ports:
-      - "8206:8006"
+      - "8${SUFFIX}06:8006"
     environment:
       - spring.cloud.config.profile=pp
       - spring.cloud.config.uri=http://192.168.100.93:8080
@@ -171,87 +171,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
-      ip: 192.168.100.93
+      ip: 192.168.100.95
       group: application
-      module: user-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
-    networks:
-      - eshop_eshopNet
-
-  operator-srv2:
-    image: registry.eshop.com/eshop/operator-srv:${TAG}
-    container_name: operator-srv2
-    ports:
-      - "8207:8007"
-    environment:
-      - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.93:8080
-      - TZ=Asia/Shanghai
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    labels:
-      env: pp
-      ip: 192.168.100.93
-      group: application
-      module: operator-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
-    networks:
-      - eshop_eshopNet
-
-  statistics-srv2:
-    image: registry.eshop.com/eshop/statistics-srv:${TAG}
-    container_name: statistics-srv2
-    ports:
-      - "8208:8008"
-    environment:
-      - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.93:8080
-      - TZ=Asia/Shanghai
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    labels:
-      env: pp
-      ip: 192.168.100.93
-      group: application
-      module: statistics-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
-    networks:
-      - eshop_eshopNet
-
-  agent-srv2:
-    image: registry.eshop.com/eshop/agent-srv:${TAG}
-    container_name: agent-srv2
-    ports:
-      - "8209:8009"
-    environment:
-      - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.93:8080
-      - TZ=Asia/Shanghai
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    labels:
-      env: pp
-      ip: 192.168.100.93
-      group: application
-      module: agent-srv
+      module: user-srv${SUFFIX}
     logging:
       driver: fluentd
       options:
