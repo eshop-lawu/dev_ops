@@ -23,21 +23,26 @@ cd /usr/local/eshop/rocketmq/alibaba-rocketmq/bin
 ----
 
 ```bash
-    mkdir /usr/local/eshop/rocketmq/log
+mkdir /usr/local/eshop/rocketmq/log
 ```
 
 4、命令授权
 ----
 ```bash
-    chmod +x mqadmin mqbroker mqnamesrv mqshutdown mqfiltersrv 
+chmod +x mqadmin mqbroker mqnamesrv mqshutdown mqfiltersrv
 ```
 
 3、分别启动namesrv、broker
 ----
 ```bash
-nohup mqnamesrv 1>/usr/local/eshop/rocketmq/log/ng.log 2>/usr/local/eshop/rocketmq/log/ng-err.log &
-nohup mqbroker -c broker.p >/usr/local/eshop/rocketmq/log/mq.log &
+nohup sh mqnamesrv 1>/usr/local/eshop/rocketmq/log/ng.log 2>/usr/local/eshop/rocketmq/log/ng-err.log &
+nohup sh mqbroker -c broker.p >/usr/local/eshop/rocketmq/log/mq.log &
 ```
+
+注意事项
+=====
+如果是多网卡机器，要在hosts文件配置本机ip
+
 数据清理
 =====
 ```bash
