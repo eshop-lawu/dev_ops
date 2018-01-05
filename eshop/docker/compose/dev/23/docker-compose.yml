@@ -12,7 +12,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   ad-srv:
@@ -25,7 +26,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
   mall-srv:
     image: registry.eshop.com/eshop/mall-srv:${TAG}
     container_name: mall-srv
@@ -36,7 +38,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   order-srv:
@@ -49,7 +52,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   product-srv:
@@ -62,7 +66,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   property-srv:
@@ -75,7 +80,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   user-srv:
@@ -88,7 +94,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   operator-srv:
@@ -101,7 +108,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   statistics-srv:
@@ -114,7 +122,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   member-api:
@@ -127,8 +136,9 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
-          - /usr/local/eshop/media:/usr/local/eshop/media
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
     networks:
       - eshop_eshopNet
   merchant-api:
@@ -141,8 +151,9 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
-          - /usr/local/eshop/media:/usr/local/eshop/media
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
     networks:
       - eshop_eshopNet
   operator-api:
@@ -155,8 +166,9 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
-          - /usr/local/eshop/media:/usr/local/eshop/media
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/eshop/media:/usr/local/eshop/media
     networks:
       - eshop_eshopNet
   external-api:
@@ -169,7 +181,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
   jobs:
@@ -182,7 +195,8 @@ services:
       - spring.cloud.config.uri=http://192.168.1.29:8080
       - TZ=Asia/Shanghai
     volumes:
-          - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
 

@@ -12,6 +12,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
@@ -38,6 +39,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
@@ -64,6 +66,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
@@ -90,6 +93,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
@@ -116,6 +120,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
@@ -142,6 +147,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
@@ -168,6 +174,7 @@ services:
       - spring.cloud.config.uri=http://192.168.100.93:8080
       - TZ=Asia/Shanghai
     volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
       env: pp
