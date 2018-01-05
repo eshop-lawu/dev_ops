@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-deployment
+    spec:
+      containers:
+      - name: pod
+        image: nginx:1.11.4-alpine
+        ports:
+        - containerPort: 80
