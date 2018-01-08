@@ -20,13 +20,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: member-api
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -48,13 +41,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: merchant-api
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -75,13 +61,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: operator-api
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -102,13 +81,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: agent-api
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -129,13 +101,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: external-api
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -156,13 +121,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: jobs
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -183,13 +141,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: cache-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -210,13 +161,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: ad-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -237,13 +181,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: mall-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -264,13 +201,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: order-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -291,13 +221,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: product-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -318,13 +241,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: property-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -345,13 +261,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: user-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -372,13 +281,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: operator-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -399,13 +301,6 @@ services:
       ip: 192.168.100.95
       group: application
       module: statistics-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
     networks:
       - eshop_eshopNet
 
@@ -426,13 +321,26 @@ services:
       ip: 192.168.100.95
       group: application
       module: agent-srv
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
+    networks:
+      - eshop_eshopNet
+
+  activity-srv:
+    image: registry.eshop.com/eshop/activity-srv:${TAG}
+    container_name: activity-srv
+    ports:
+      - "8010:8010"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: activity-srv
     networks:
       - eshop_eshopNet
 
