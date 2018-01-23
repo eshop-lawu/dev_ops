@@ -1,0 +1,24 @@
+官网下载地址https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.9/binary/tarball/percona-xtrabackup-2.4.9-Linux-x86_64.tar.gz
+说明：目前正式环境206为master数据库、212为slave数据库，现将208加入206管理节点为其slave
+1、停止web及service应用
+2、在mysql.cnf中添加如下内容
+[mysqld]
+socket=/var/run/mysqld/mysqld.sock
+datadir=/usr/local/eshop/mysql/data
+3、将percona-xtrabackup-2.4.9-Linux-x86_64.tar.gz文件上传至206、208的/data/xtrabackup/
+4、解压文件tar -zxvf
+5、将rsync.sh和xtr.sh 上传至服务/data下并授予可执行权限并修改其内容
+6、在206与208安装rsync 命令 sudo yum install rsync
+7、206到208做dev2的免密登录，以及206到227的免密（用作备份文件同步至227上）
+8、运行xtr.sh将206数据库进行备份，然后手动同步到208机器 rsync -r -avz /data/backup/full/$data* dev2@192.168.100.208:/data/backup/backup_206/
+9、208上停止docker服务，并删除mysql 的data下文件，然后执行
+	sudo /data/percona-xtrabackup-2.4.9-Linux-x86_64/bin/innobackupex --defaults-file=/usr/local/eshop/mysql/conf.d/mysql.cnf --user=root --password=xxx --copy-back /data/backup/2018-01-19_11-36-12
+10、进入206容器中查看master节点状态和log的pos位置
+12、启动208上mysql服务，并进入容器进行配置
+	change master to master_host='192.168.100.206',master_user='usersync',master_password='xxx',master_log_file='mysql-bin.000003',master_log_pos=7576523,master_port=3306;
+    start slave;
+    show slave status\G;
+12、在206中编写定时任务来定时将数据库文件进行备份crontab -e 编辑
+	0 6 * * * sudo /data/backup/xtr.sh
+    0 7 * * * /data/backup/rsync.sh
+13修改mycat\config的schema.xml添加<readHost host="hostS2" url="192.168.100.208:3306" user="usersync" password="xxx" weight="1" />
