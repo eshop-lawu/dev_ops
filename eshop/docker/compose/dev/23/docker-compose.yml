@@ -28,6 +28,8 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   mall-srv:
     image: registry.eshop.com/eshop/mall-srv:${TAG}
     container_name: mall-srv
@@ -126,6 +128,34 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       - eshop_eshopNet
+  activity-srv:
+    image: registry.eshop.com/eshop/activity-srv:${TAG}
+    container_name: activity-srv
+    ports:
+      - "8010:8010"
+    environment:
+      - spring.cloud.config.profile=dev
+      - spring.cloud.config.uri=http://192.168.1.29:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  beh-analyze-srv:
+    image: registry.eshop.com/eshop/beh-analyze-srv:${TAG}
+    container_name: beh-analyze-srv
+    ports:
+      - "8011:8011"
+    environment:
+      - spring.cloud.config.profile=dev
+      - spring.cloud.config.uri=http://192.168.1.29:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
   member-api:
     image: registry.eshop.com/eshop/member-api:${TAG}
     container_name: member-api
@@ -190,6 +220,20 @@ services:
     container_name: jobs
     ports:
       - "6666:6666"
+    environment:
+      - spring.cloud.config.profile=dev
+      - spring.cloud.config.uri=http://192.168.1.29:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  beh-analyze-engine:
+    image: registry.eshop.com/eshop/beh-analyze-engine:${TAG}
+    container_name: beh-analyze-engine
+    ports:
+      - "7777:7777"
     environment:
       - spring.cloud.config.profile=dev
       - spring.cloud.config.uri=http://192.168.1.29:8080

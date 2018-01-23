@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<globalConfiguration>
+    <registryCenterConfigurations>
+        <registryCenterConfiguration name="pp-ad-job" zkAddressList="192.168.100.95:2181" namespace="ad-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-mall-job" zkAddressList="192.168.100.95:2181" namespace="mall-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-order-job" zkAddressList="192.168.100.95:2181" namespace="order-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-product-job" zkAddressList="192.168.100.95:2181" namespace="product-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-property-job" zkAddressList="192.168.100.95:2181" namespace="property-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-user-job" zkAddressList="192.168.100.95:2181" namespace="user-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-jobs-job" zkAddressList="192.168.100.95:2181" namespace="jobs-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="pp-activity-job" zkAddressList="192.168.100.95:2181" namespace="activity-job" digest="" activated="false"/>
+        
+        <registryCenterConfiguration name="product-ad-job" zkAddressList="192.168.100.90:2181" namespace="ad-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-mall-job" zkAddressList="192.168.100.90:2181" namespace="mall-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-order-job" zkAddressList="192.168.100.90:2181" namespace="order-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-product-job" zkAddressList="192.168.100.90:2181" namespace="product-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-property-job" zkAddressList="192.168.100.90:2181" namespace="property-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-user-job" zkAddressList="192.168.100.90:2181" namespace="user-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-jobs-job" zkAddressList="192.168.100.90:2181" namespace="jobs-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="product-activity-job" zkAddressList="192.168.100.90:2181" namespace="activity-job" digest="" activated="false"/>
+    </registryCenterConfigurations>
+    <eventTraceDataSourceConfigurations/>
+</globalConfiguration>
