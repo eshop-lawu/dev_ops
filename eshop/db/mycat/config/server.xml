@@ -17,6 +17,6 @@
 
     <user name="eshopUser">
         <property name="password">eshop@product#1301</property>
-        <property name="schemas">ad,product,property,order,mall,user,operator,statistics,agent,behavior</property>
+        <property name="schemas">ad,product,property,order,mall,user,operator,statistics,agent,activity,behavior</property>
     </user>
 </mycat:server>
