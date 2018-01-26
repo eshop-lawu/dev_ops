@@ -27,3 +27,8 @@ sudo docker run --name mycat -d -p 8066:8066 -p 9066:9066 -p 1984:1984 \
 说明
 ======
 xinetd/mycat_status_check.sh必须授予执行权限
+
+
+
+mycat主从自动切换 只需修改dataHost节点的writeType="0" switchType="2"
+然后心跳语句必须是show slave status,然后多个writeHost节点就可以了
