@@ -21,4 +21,14 @@ datadir=/usr/local/eshop/mysql/data
 12、在206中编写定时任务来定时将数据库文件进行备份crontab -e 编辑
 	0 6 * * * sudo /data/backup/xtr.sh
     0 7 * * * /data/backup/rsync.sh
-13修改mycat\config的schema.xml添加<readHost host="hostS2" url="192.168.100.208:3306" user="usersync" password="xxx" weight="1" />
+13修改mycat\config的schema.xml添加<readHost host="hostS2" url="192.168.100.208:3306" user="eshopuser" password="xxx" weight="1" />
+
+
+异常恢复方案
+执行上述步骤可以先手动备份各个数据库，或者用xtrabackup进行备份，如果用xtrabackup进行备份那么就用
+sudo /data/percona-xtrabackup-2.4.9-Linux-x86_64/bin/innobackupex --defaults-file=/usr/local/eshop/mysql/conf.d/mysql.cnf --user=root --password=xxx --copy-back /data/backup/2018-01-19_11-36-12
+进行还原主数据库，然后删除mysql.cnf中添加的
+[mysqld]
+socket=/var/run/mysqld/mysqld.sock
+datadir=/usr/local/eshop/mysql/data
+然后重新做数据库主从，并删除mycat配置多的readHost节点，删除定时任务crontab -e 编辑内容清空
