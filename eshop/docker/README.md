@@ -16,6 +16,11 @@ sudo iptables -F;sudo iptables -X
 ------
 参考地址： https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.12.MkthiN#/accelerator
 
+指定版本安装版本
+```bash
+sudo yum -y install docker-ce-17.06.0.ce-1.el7.centos
+```
+
 把当前用户加入到docker用户组
 ```bash
 sudo usermod -aG docker dev2

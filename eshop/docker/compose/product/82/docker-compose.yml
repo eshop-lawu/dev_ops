@@ -1,0 +1,162 @@
+version: '3'
+
+services:
+
+  cache-srv:
+    image: registry.eshop.com/eshop/cache-srv:${TAG}
+    container_name: cache-srv
+    ports:
+      - "7001:7001"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  ad-srv:
+    image: registry.eshop.com/eshop/ad-srv:${TAG}
+    container_name: ad-srv
+    ports:
+      - "8001:8001"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  mall-srv:
+    image: registry.eshop.com/eshop/mall-srv:${TAG}
+    container_name: mall-srv
+    ports:
+      - "8002:8002"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  order-srv:
+    image: registry.eshop.com/eshop/order-srv:${TAG}
+    container_name: order-srv
+    ports:
+      - "8003:8003"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  product-srv:
+    image: registry.eshop.com/eshop/product-srv:${TAG}
+    container_name: product-srv
+    ports:
+      - "8004:8004"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  property-srv:
+    image: registry.eshop.com/eshop/property-srv:${TAG}
+    container_name: property-srv
+    ports:
+      - "8005:8005"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  user-srv:
+    image: registry.eshop.com/eshop/user-srv:${TAG}
+    container_name: user-srv
+    ports:
+      - "8006:8006"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  operator-srv:
+    image: registry.eshop.com/eshop/operator-srv:${TAG}
+    container_name: operator-srv
+    ports:
+      - "8007:8007"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  statistics-srv:
+    image: registry.eshop.com/eshop/statistics-srv:${TAG}
+    container_name: statistics-srv
+    ports:
+      - "8008:8008"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  agent-srv:
+    image: registry.eshop.com/eshop/agent-srv:${TAG}
+    container_name: agent-srv
+    ports:
+      - "8009:8009"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+  activity-srv:
+    image: registry.eshop.com/eshop/activity-srv:${TAG}
+    container_name: activity-srv
+    ports:
+      - "8010:8010"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - eshop_eshopNet
+
+networks:
+  eshop_eshopNet:
+    external: true
