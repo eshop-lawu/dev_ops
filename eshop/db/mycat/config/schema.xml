@@ -12,6 +12,7 @@
     <schema name="agent" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_agent"/>
     <schema name="activity" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_activity"/>
     <schema name="behavior" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_behavior"/>
+    <schema name="game" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn_game"/>
     
     <dataNode name="dn_ad" dataHost="host1" database="eshop_ad"/>
     <dataNode name="dn_product" dataHost="host1" database="eshop_product"/>
@@ -24,6 +25,7 @@
     <dataNode name="dn_agent" dataHost="host1" database="eshop_agent"/>
     <dataNode name="dn_activity" dataHost="host1" database="eshop_activity"/>
     <dataNode name="dn_behavior" dataHost="host1" database="eshop_behavior"/>
+    <dataNode name="dn_game" dataHost="host1" database="eshop_game"/>
 
     <dataHost name="host1" maxCon="1000" minCon="10" balance="1" writeType="1" dbType="mysql" dbDriver="native">
         <heartbeat>select 1</heartbeat>

@@ -63,6 +63,26 @@ services:
       module: operator-api
     networks:
       - eshop_eshopNet
+      
+  member-ws:
+    image: registry.eshop.com/eshop/member-ws:${TAG}
+    container_name: member-ws
+    ports:
+      - "9999:9999"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: member-ws
+    networks:
+      - eshop_eshopNet
 
   agent-api:
     image: registry.eshop.com/eshop/agent-api:${TAG}
@@ -381,6 +401,26 @@ services:
       ip: 192.168.100.93
       group: application
       module: weixin-srv
+    networks:
+      - eshop_eshopNet
+
+  game-srv:
+    image: registry.eshop.com/eshop/game-srv:${TAG}
+    container_name: game-srv
+    ports:
+      - "8012:8012"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: game-srv
     networks:
       - eshop_eshopNet
 
