@@ -20,6 +20,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: member-api
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -41,6 +44,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: merchant-api
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -61,26 +67,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: operator-api
-    networks:
-      - eshop_eshopNet
-      
-  member-ws:
-    image: registry.eshop.com/eshop/member-ws:${TAG}
-    container_name: member-ws
-    ports:
-      - "9999:9999"
-    environment:
-      - spring.cloud.config.profile=pp
-      - spring.cloud.config.uri=http://192.168.100.93:8080
-      - TZ=Asia/Shanghai
-    volumes:
-      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
-      - /etc/localtime:/etc/localtime:ro
-    labels:
-      env: pp
-      ip: 192.168.100.93
-      group: application
-      module: member-ws
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -101,6 +90,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: agent-api
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -121,6 +113,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: external-api
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -141,6 +136,32 @@ services:
       ip: 192.168.100.93
       group: application
       module: jobs
+    logging:
+      options:
+        max-size: "1g"
+    networks:
+      - eshop_eshopNet
+
+  member-ws:
+    image: registry.eshop.com/eshop/member-ws:${TAG}
+    container_name: member-ws
+    ports:
+      - "9999:9999"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: member-ws
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -161,6 +182,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: cache-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -181,6 +205,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: ad-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -201,6 +228,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: mall-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -221,6 +251,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: order-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -241,6 +274,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: product-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -261,6 +297,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: property-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -281,6 +320,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: user-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -301,6 +343,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: operator-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -321,6 +366,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: statistics-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -341,6 +389,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: agent-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -361,6 +412,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: activity-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
       
@@ -381,6 +435,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: beh-analyze-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
       
@@ -401,6 +458,9 @@ services:
       ip: 192.168.100.93
       group: application
       module: weixin-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -421,9 +481,11 @@ services:
       ip: 192.168.100.93
       group: application
       module: game-srv
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
-
 
 networks:
   eshop_eshopNet:

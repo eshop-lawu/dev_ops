@@ -14,6 +14,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -30,6 +33,9 @@ services:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
       - /usr/local/eshop/media:/usr/local/eshop/media
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   merchant-api:
@@ -45,6 +51,9 @@ services:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
       - /usr/local/eshop/media:/usr/local/eshop/media
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   operator-api:
@@ -59,6 +68,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   agent-api:
@@ -73,6 +85,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   external-api:
@@ -87,6 +102,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   jobs:
@@ -101,6 +119,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 

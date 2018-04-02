@@ -14,6 +14,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   ad-srv:
@@ -28,6 +31,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   mall-srv:
@@ -42,6 +48,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   order-srv:
@@ -56,6 +65,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   product-srv:
@@ -70,6 +82,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   property-srv:
@@ -84,6 +99,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   user-srv:
@@ -98,6 +116,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   operator-srv:
@@ -112,6 +133,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   statistics-srv:
@@ -126,6 +150,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   agent-srv:
@@ -140,6 +167,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   activity-srv:
@@ -154,6 +184,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
   beh-analyze-srv:
@@ -168,6 +201,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
       
@@ -183,6 +219,9 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
       - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 

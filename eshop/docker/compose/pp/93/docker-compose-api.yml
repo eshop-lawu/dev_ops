@@ -21,12 +21,8 @@ services:
       group: application
       module: member-api${SUFFIX}
     logging:
-      driver: fluentd
       options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
@@ -49,12 +45,31 @@ services:
       group: application
       module: merchant-api${SUFFIX}
     logging:
-      driver: fluentd
       options:
-        fluentd-address: "192.168.100.94:24224"
-        fluentd-async-connect: "true"
-        tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-        labels: "env,ip,group,module"
+        max-size: "1g"
+    networks:
+      - eshop_eshopNet
+
+  member-ws:
+    image: registry.eshop.com/eshop/member-ws:${TAG}
+    container_name: member-ws
+    ports:
+      - "9999${SUFFIX}:9999"
+    environment:
+      - spring.cloud.config.profile=pp
+      - spring.cloud.config.uri=http://192.168.100.93:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      env: pp
+      ip: 192.168.100.93
+      group: application
+      module: member-ws
+    logging:
+      options:
+        max-size: "1g"
     networks:
       - eshop_eshopNet
 
