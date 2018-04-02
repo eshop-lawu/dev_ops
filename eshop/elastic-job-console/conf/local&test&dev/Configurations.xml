@@ -9,24 +9,27 @@
         <registryCenterConfiguration name="local-user-job" zkAddressList="192.168.1.22:2181" namespace="user-job" digest="" activated="false"/>
         <registryCenterConfiguration name="local-jobs-job" zkAddressList="192.168.1.22:2181" namespace="jobs-job" digest="" activated="false"/>
         <registryCenterConfiguration name="local-activity-job" zkAddressList="192.168.1.22:2181" namespace="activity-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="local-game-job" zkAddressList="192.168.1.22:2181" namespace="game-job" digest="" activated="false"/>
         
         <registryCenterConfiguration name="test-ad-job" zkAddressList="192.168.1.26:2181" namespace="ad-job" digest="" activated="false"/>
         <registryCenterConfiguration name="test-mall-job" zkAddressList="192.168.1.26:2181" namespace="mall-job" digest="" activated="false"/>
-        <registryCenterConfiguration name="test-order-job" zkAddressList="192.168.1.26:2181" namespace="order-job" digest="" activated="true"/>
+        <registryCenterConfiguration name="test-order-job" zkAddressList="192.168.1.26:2181" namespace="order-job" digest="" activated="false"/>
         <registryCenterConfiguration name="test-product-job" zkAddressList="192.168.1.26:2181" namespace="product-job" digest="" activated="false"/>
         <registryCenterConfiguration name="test-property-job" zkAddressList="192.168.1.26:2181" namespace="property-job" digest="" activated="false"/>
         <registryCenterConfiguration name="test-user-job" zkAddressList="192.168.1.26:2181" namespace="user-job" digest="" activated="false"/>
         <registryCenterConfiguration name="test-jobs-job" zkAddressList="192.168.1.26:2181" namespace="jobs-job" digest="" activated="false"/>
         <registryCenterConfiguration name="test-activity-job" zkAddressList="192.168.1.22:2181" namespace="activity-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="test-game-job" zkAddressList="192.168.1.22:2181" namespace="game-job" digest="" activated="false"/>
         
         <registryCenterConfiguration name="dev-ad-job" zkAddressList="192.168.1.29:2181" namespace="ad-job" digest="" activated="false"/>
         <registryCenterConfiguration name="dev-mall-job" zkAddressList="192.168.1.29:2181" namespace="mall-job" digest="" activated="false"/>
-        <registryCenterConfiguration name="dev-order-job" zkAddressList="192.168.1.29:2181" namespace="order-job" digest="" activated="true"/>
+        <registryCenterConfiguration name="dev-order-job" zkAddressList="192.168.1.29:2181" namespace="order-job" digest="" activated="false"/>
         <registryCenterConfiguration name="dev-product-job" zkAddressList="192.168.1.29:2181" namespace="product-job" digest="" activated="false"/>
         <registryCenterConfiguration name="dev-property-job" zkAddressList="192.168.1.29:2181" namespace="property-job" digest="" activated="false"/>
         <registryCenterConfiguration name="dev-user-job" zkAddressList="192.168.1.29:2181" namespace="user-job" digest="" activated="false"/>
         <registryCenterConfiguration name="dev-jobs-job" zkAddressList="192.168.1.29:2181" namespace="jobs-job" digest="" activated="false"/>
         <registryCenterConfiguration name="dev-activity-job" zkAddressList="192.168.1.29:2181" namespace="activity-job" digest="" activated="false"/>
+        <registryCenterConfiguration name="dev-game-job" zkAddressList="192.168.1.29:2181" namespace="game-job" digest="" activated="false"/>
     </registryCenterConfigurations>
     <eventTraceDataSourceConfigurations/>
 </globalConfiguration>
