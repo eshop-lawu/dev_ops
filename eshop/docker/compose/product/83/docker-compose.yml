@@ -189,7 +189,40 @@ services:
         max-size: "1g"
     networks:
       - eshop_eshopNet
-
+  game-srv:
+    image: registry.eshop.com/eshop/game-srv:${TAG}
+    container_name: game-srv
+    ports:
+      - "8012:8012"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
+    networks:
+      - eshop_eshopNet
+  weixin-srv:
+    image: registry.eshop.com/eshop/weixin-srv:${TAG}
+    container_name: weixin-srv
+    ports:
+      - "9003:7003"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
+    networks:
+      - eshop_eshopNet
 networks:
   eshop_eshopNet:
     external: true

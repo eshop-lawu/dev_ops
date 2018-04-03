@@ -125,6 +125,24 @@ services:
     networks:
       - eshop_eshopNet
 
+  member-ws:
+    image: registry.eshop.com/eshop/member-ws:${TAG}
+    container_name: member-ws
+    ports:
+      - "9999:9999"
+    environment:
+      - spring.cloud.config.profile=product
+      - spring.cloud.config.uri=http://192.168.100.80:8080
+      - TZ=Asia/Shanghai
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai:ro
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: "1g"
+    networks:
+      - eshop_eshopNet
+
 networks:
   eshop_eshopNet:
     external: true
