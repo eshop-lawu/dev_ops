@@ -54,3 +54,15 @@ sudo docker build -t registry.eshop.com/redis:3.2.6-alpine /usr/local/eshop/redi
 ```bash
 sudo docker push registry.eshop.com/xxx:1.0
 ```
+
+设置日志docker日志大小
+------
+```bash
+vim /etc/docker/daemon.json
+
+{
+  "log-opts": {
+    "max-size": "1g"
+  }
+}
+```
