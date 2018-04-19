@@ -14,7 +14,7 @@ services:
     environment:
       INTERFACE: "em1"
       STATE: "MASTER"
-      VIRTUAL_ROUTER_ID: "51"
+      VIRTUAL_ROUTER_ID: "50"
       PRIORITY: "101"
       VIRTUAL_IP: "192.168.100.135"
       VIRTUAL_MASK: "24"
