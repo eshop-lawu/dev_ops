@@ -15,6 +15,7 @@ sudo iptables -F;sudo iptables -X
 通过阿里云加速安装docker
 ------
 参考地址： https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.12.MkthiN#/accelerator
+更新软件源信息：https://yq.aliyun.com/articles/110806?spm=5176.8351553.0.0.18361991t01QNj
 
 指定版本安装版本
 ```bash
